@@ -5,9 +5,10 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:cyber-ontology="https://TBD/cyber-ontology#">
     <owl:Ontology rdf:about="https://TBD/cyber-ontology">
-        <owl:versionInfo xml:lang="fr">Version 0.1 du 03/12/2024 : ajout des classes SYSTEME D&apos;INFORMATION et TRAITEMENT DE DONNEES, des relations et propriétés afférentes.</owl:versionInfo>
+        <owl:versionInfo xml:lang="fr">Version 0.1 du 03/12/2024 : ajout des classes DONNEE CYBER, SYSTEME D&apos;INFORMATION et TRAITEMENT DE DONNEES, des relations et propriétés afférentes.</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -36,14 +37,14 @@
     
 
 
-    <!-- https://TBD/cyber-ontology#compose -->
+    <!-- https://TBD/cyber-ontology#composes -->
 
-    <owl:ObjectProperty rdf:about="https://TBD/cyber-ontology#compose">
+    <owl:ObjectProperty rdf:about="https://TBD/cyber-ontology#composes">
         <owl:inverseOf rdf:resource="https://TBD/cyber-ontology#is-composed-by"/>
         <rdfs:domain rdf:resource="https://TBD/cyber-ontology#cyber-data"/>
         <rdfs:range rdf:resource="https://TBD/cyber-ontology#cyber-data"/>
-        <rdfs:label xml:lang="en">compose</rdfs:label>
         <rdfs:label xml:lang="fr">compose</rdfs:label>
+        <rdfs:label xml:lang="en">composes</rdfs:label>
         <owl:versionInfo xml:lang="fr">2024-12-03 : création de la relation</owl:versionInfo>
         <owl:versionInfo xml:lang="fr">2024-12-03 : généralisation de la relation à toutes les classes</owl:versionInfo>
     </owl:ObjectProperty>
@@ -177,7 +178,7 @@
         <rdfs:subClassOf rdf:resource="https://TBD/cyber-ontology#cyber-data"/>
         <rdfs:isDefinedBy xml:lang="fr">(d’après [RGPD])
 Toute opération ou tout ensemble d&apos;opérations effectuées ou non à l&apos;aide de procédés automatisés et appliquées à des données ou des ensembles de données, telles que la collecte, l&apos;enregistrement, l&apos;organisation, la structuration, la conservation, l&apos;adaptation ou la modification, l&apos;extraction, la consultation, l&apos;utilisation, la communication par transmission, la diffusion ou toute autre forme de mise à disposition, le rapprochement ou l&apos;interconnexion, la limitation, l&apos;effacement ou la destruction.
-Synonyme(s) : traitement de donnéées à caractère personnel, traitement.</rdfs:isDefinedBy>
+Synonyme(s) : traitement de données à caractère personnel, traitement.</rdfs:isDefinedBy>
         <rdfs:isDefinedBy xml:lang="en">(from [GDPR])
 Any operation or set of operations which is performed on personal data, whether or not by automated means, such as collection, recording, organisation, structuring, storage, adaptation or altration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction.
 Synonym(s): personal data processing, processing.</rdfs:isDefinedBy>
@@ -202,6 +203,71 @@ Synonym(s): information and communication system (ICS), digital service.</rdfs:i
         <rdfs:label xml:lang="fr">Système d&apos;information</rdfs:label>
         <owl:versionInfo xml:lang="fr">2024-12-03 : création de la classe</owl:versionInfo>
     </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://TBD/cyber-ontology#Processing1 -->
+
+    <owl:NamedIndividual rdf:about="https://TBD/cyber-ontology#Processing1">
+        <rdf:type rdf:resource="https://TBD/cyber-ontology#data-processing"/>
+        <cyber-ontology:relies-on rdf:resource="https://TBD/cyber-ontology#SI1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://TBD/cyber-ontology#Processing2 -->
+
+    <owl:NamedIndividual rdf:about="https://TBD/cyber-ontology#Processing2">
+        <rdf:type rdf:resource="https://TBD/cyber-ontology#data-processing"/>
+        <cyber-ontology:relies-on rdf:resource="https://TBD/cyber-ontology#SI2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://TBD/cyber-ontology#SI1 -->
+
+    <owl:NamedIndividual rdf:about="https://TBD/cyber-ontology#SI1">
+        <rdf:type rdf:resource="https://TBD/cyber-ontology#information-system"/>
+        <cyber-ontology:carries rdf:resource="https://TBD/cyber-ontology#Processing2"/>
+        <cyber-ontology:composes rdf:resource="https://TBD/cyber-ontology#SI3"/>
+        <cyber-ontology:is-connected-to rdf:resource="https://TBD/cyber-ontology#SI1"/>
+        <cyber-ontology:is-interconnected-to rdf:resource="https://TBD/cyber-ontology#SI2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://TBD/cyber-ontology#SI2 -->
+
+    <owl:NamedIndividual rdf:about="https://TBD/cyber-ontology#SI2">
+        <rdf:type rdf:resource="https://TBD/cyber-ontology#information-system"/>
+        <cyber-ontology:carries rdf:resource="https://TBD/cyber-ontology#Processing1"/>
+        <cyber-ontology:composes rdf:resource="https://TBD/cyber-ontology#SI3"/>
+        <cyber-ontology:is-connected-to rdf:resource="https://TBD/cyber-ontology#SI2"/>
+        <cyber-ontology:is-interconnected-to rdf:resource="https://TBD/cyber-ontology#SI1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://TBD/cyber-ontology#SI3 -->
+
+    <owl:NamedIndividual rdf:about="https://TBD/cyber-ontology#SI3">
+        <rdf:type rdf:resource="https://TBD/cyber-ontology#information-system"/>
+        <cyber-ontology:carries rdf:resource="https://TBD/cyber-ontology#Processing1"/>
+        <cyber-ontology:carries rdf:resource="https://TBD/cyber-ontology#Processing2"/>
+        <cyber-ontology:is-composed-by rdf:resource="https://TBD/cyber-ontology#SI1"/>
+        <cyber-ontology:is-composed-by rdf:resource="https://TBD/cyber-ontology#SI2"/>
+    </owl:NamedIndividual>
 </rdf:RDF>
 
 
