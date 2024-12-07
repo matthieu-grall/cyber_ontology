@@ -8,7 +8,15 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:cyber-ontology="https://TBD/cyber-ontology#">
     <owl:Ontology rdf:about="https://TBD/cyber-ontology">
-        <owl:versionInfo xml:lang="fr">Version 0.1 du 03/12/2024 : ajout des classes DONNEE CYBER, SYSTEME D&apos;INFORMATION et TRAITEMENT DE DONNEES, des relations et propriétés afférentes.</owl:versionInfo>
+        <owl:versionInfo xml:lang="fr">Version 0.1 du 03/12/2024 :
+- classes : création de #cyber-data, #information-system et #data-processing ;
+- relations : création de premières relations afférentes ;
+- propriétés : création de premières propriétés afférentes.</owl:versionInfo>
+        <owl:versionInfo xml:lang="fr">Version 0.2 du 07/12/2024 :
+- classes : ajout de #data, #purpose, #interconnection, #business-asset, #supporting-asset ;
+- relations : ajout de #processes, #is-processed-by, #has-instance, #is-instance-of, #consumes, #is-consumed-by, #produces, #is-produced-by ;
+- propriétés : ajout de #short-label, #long-label, #information-system-status, #information-system-type, #information-system-regulatory-type, #identification-property, #descrption-property, dépréciation de #data-processing-id (pas utile) ;
+- améliorations mineures (renommages, déplacements, corrections).</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -27,64 +35,187 @@
     <!-- https://TBD/cyber-ontology#carries -->
 
     <owl:ObjectProperty rdf:about="https://TBD/cyber-ontology#carries">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <owl:inverseOf rdf:resource="https://TBD/cyber-ontology#relies-on"/>
         <rdfs:domain rdf:resource="https://TBD/cyber-ontology#information-system"/>
         <rdfs:range rdf:resource="https://TBD/cyber-ontology#data-processing"/>
         <rdfs:label xml:lang="en">carries</rdfs:label>
         <rdfs:label xml:lang="fr">supporte</rdfs:label>
-        <owl:versionInfo xml:lang="fr">2024-12-03 : création de la relation</owl:versionInfo>
+        <owl:versionInfo xml:lang="fr">2024-12-03 : création de la relation (#carries)</owl:versionInfo>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://TBD/cyber-ontology#composes -->
+    <!-- https://TBD/cyber-ontology#consumes -->
 
-    <owl:ObjectProperty rdf:about="https://TBD/cyber-ontology#composes">
-        <owl:inverseOf rdf:resource="https://TBD/cyber-ontology#is-composed-by"/>
-        <rdfs:domain rdf:resource="https://TBD/cyber-ontology#cyber-data"/>
-        <rdfs:range rdf:resource="https://TBD/cyber-ontology#cyber-data"/>
-        <rdfs:label xml:lang="fr">compose</rdfs:label>
-        <rdfs:label xml:lang="en">composes</rdfs:label>
-        <owl:versionInfo xml:lang="fr">2024-12-03 : création de la relation</owl:versionInfo>
-        <owl:versionInfo xml:lang="fr">2024-12-03 : généralisation de la relation à toutes les classes</owl:versionInfo>
+    <owl:ObjectProperty rdf:about="https://TBD/cyber-ontology#consumes">
+        <rdfs:subPropertyOf rdf:resource="https://TBD/cyber-ontology#processes"/>
+        <owl:inverseOf rdf:resource="https://TBD/cyber-ontology#is-consumed-by"/>
+        <rdfs:label xml:lang="fr">consomme</rdfs:label>
+        <rdfs:label xml:lang="en">consumes</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-07 : création de la relation (#consumes)</owl:versionInfo>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://TBD/cyber-ontology#is-composed-by -->
+    <!-- https://TBD/cyber-ontology#has-instance -->
 
-    <owl:ObjectProperty rdf:about="https://TBD/cyber-ontology#is-composed-by">
-        <rdfs:domain rdf:resource="https://TBD/cyber-ontology#cyber-data"/>
-        <rdfs:range rdf:resource="https://TBD/cyber-ontology#cyber-data"/>
-        <rdfs:label xml:lang="fr">est composé de</rdfs:label>
-        <rdfs:label xml:lang="en">is composed by</rdfs:label>
-        <owl:versionInfo xml:lang="fr">2024-12-03 : création de la relation</owl:versionInfo>
-        <owl:versionInfo xml:lang="fr">2024-12-03 : généralisation de la relation à toutes les classes</owl:versionInfo>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://TBD/cyber-ontology#is-connected-to -->
-
-    <owl:ObjectProperty rdf:about="https://TBD/cyber-ontology#is-connected-to">
-        <owl:inverseOf rdf:resource="https://TBD/cyber-ontology#is-interconnected-to"/>
+    <owl:ObjectProperty rdf:about="https://TBD/cyber-ontology#has-instance">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://TBD/cyber-ontology#is-instance-of"/>
         <rdfs:domain rdf:resource="https://TBD/cyber-ontology#information-system"/>
         <rdfs:range rdf:resource="https://TBD/cyber-ontology#information-system"/>
-        <rdfs:label xml:lang="fr">est connecté à</rdfs:label>
-        <rdfs:label xml:lang="en">is connected to</rdfs:label>
-        <owl:versionInfo xml:lang="fr">2024-12-03 : création de la relation</owl:versionInfo>
+        <rdfs:label xml:lang="fr">a comme instance</rdfs:label>
+        <rdfs:label xml:lang="en">has instance</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-07 : création de la relation (#has-instance)</owl:versionInfo>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://TBD/cyber-ontology#is-interconnected-to -->
+    <!-- https://TBD/cyber-ontology#has-interconnection -->
 
-    <owl:ObjectProperty rdf:about="https://TBD/cyber-ontology#is-interconnected-to">
+    <owl:ObjectProperty rdf:about="https://TBD/cyber-ontology#has-interconnection">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://TBD/cyber-ontology#interconnects"/>
+        <rdfs:domain rdf:resource="https://TBD/cyber-ontology#information-system"/>
+        <rdfs:range rdf:resource="https://TBD/cyber-ontology#interconnection"/>
+        <rdfs:label xml:lang="fr">a comme interconnexion</rdfs:label>
+        <rdfs:label xml:lang="en">has interconnection</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-03 : création de la relation (#is-interconnected-to)</owl:versionInfo>
+        <owl:versionInfo xml:lang="fr">2024-12-07 : changement de l&apos;IRI (#is-interconnected-to en #has-interconnection) et des labels</owl:versionInfo>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://TBD/cyber-ontology#includes -->
+
+    <owl:ObjectProperty rdf:about="https://TBD/cyber-ontology#includes">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://TBD/cyber-ontology#is-included-in"/>
+        <rdfs:domain rdf:resource="https://TBD/cyber-ontology#cyber-scope-data"/>
+        <rdfs:range rdf:resource="https://TBD/cyber-ontology#cyber-scope-data"/>
+        <rdfs:label xml:lang="fr">comprend</rdfs:label>
+        <rdfs:label xml:lang="en">includes</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-03 : création de la relation (#is-composed-by)</owl:versionInfo>
+        <owl:versionInfo xml:lang="fr">2024-12-03 : généralisation de la relation à toutes les classes (domain et range #cyber-data)</owl:versionInfo>
+        <owl:versionInfo xml:lang="fr">2024-12-06 : changement de l&apos;IRI (#is-composed-by en #includes) et des labels</owl:versionInfo>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://TBD/cyber-ontology#interconnects -->
+
+    <owl:ObjectProperty rdf:about="https://TBD/cyber-ontology#interconnects">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://TBD/cyber-ontology#interconnection"/>
+        <rdfs:range rdf:resource="https://TBD/cyber-ontology#information-system"/>
+        <rdfs:label xml:lang="fr">interconnecte</rdfs:label>
+        <rdfs:label xml:lang="en">interconnects</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-03 : création de la relation (#is-connected-to)</owl:versionInfo>
+        <owl:versionInfo xml:lang="fr">2024-12-07 : changement de l&apos;IRI (#is-connected-to en #interconnects) et des labels</owl:versionInfo>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://TBD/cyber-ontology#is-consumed-by -->
+
+    <owl:ObjectProperty rdf:about="https://TBD/cyber-ontology#is-consumed-by">
+        <rdfs:subPropertyOf rdf:resource="https://TBD/cyber-ontology#is-processed-by"/>
+        <rdfs:label xml:lang="fr">est consommée par</rdfs:label>
+        <rdfs:label xml:lang="en">is consumed by</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-07 : création de la relation (#is-consumed-by)</owl:versionInfo>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://TBD/cyber-ontology#is-included-in -->
+
+    <owl:ObjectProperty rdf:about="https://TBD/cyber-ontology#is-included-in">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://TBD/cyber-ontology#cyber-scope-data"/>
+        <rdfs:range rdf:resource="https://TBD/cyber-ontology#cyber-scope-data"/>
+        <rdfs:label xml:lang="fr">est compris dans</rdfs:label>
+        <rdfs:label xml:lang="en">is included in</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-03 : création de la relation (#composes)</owl:versionInfo>
+        <owl:versionInfo xml:lang="fr">2024-12-03 : généralisation de la relation à toutes les classes (domain et range #cyber-data)</owl:versionInfo>
+        <owl:versionInfo xml:lang="fr">2024-12-06 : changement de l&apos;IRI (#composes en #is-included-in) et des labels</owl:versionInfo>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://TBD/cyber-ontology#is-instance-of -->
+
+    <owl:ObjectProperty rdf:about="https://TBD/cyber-ontology#is-instance-of">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="https://TBD/cyber-ontology#information-system"/>
         <rdfs:range rdf:resource="https://TBD/cyber-ontology#information-system"/>
-        <rdfs:label xml:lang="fr">est interconnecté à</rdfs:label>
-        <rdfs:label xml:lang="en">is interconnected to</rdfs:label>
-        <owl:versionInfo xml:lang="fr">2024-12-03 : création de la relation</owl:versionInfo>
+        <rdfs:label xml:lang="fr">est une instance de</rdfs:label>
+        <rdfs:label xml:lang="en">is instance of</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-07 : création de la relation (#is-instance-of)</owl:versionInfo>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://TBD/cyber-ontology#is-processed-by -->
+
+    <owl:ObjectProperty rdf:about="https://TBD/cyber-ontology#is-processed-by">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://TBD/cyber-ontology#processes"/>
+        <rdfs:domain rdf:resource="https://TBD/cyber-ontology#data"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://TBD/cyber-ontology#data-processing"/>
+                    <rdf:Description rdf:about="https://TBD/cyber-ontology#information-system"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:label xml:lang="fr">est traitée par</rdfs:label>
+        <rdfs:label xml:lang="en">is processed by</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-07 : création de la relation (#is-processed-by)</owl:versionInfo>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://TBD/cyber-ontology#is-produced-by -->
+
+    <owl:ObjectProperty rdf:about="https://TBD/cyber-ontology#is-produced-by">
+        <rdfs:subPropertyOf rdf:resource="https://TBD/cyber-ontology#is-processed-by"/>
+        <owl:inverseOf rdf:resource="https://TBD/cyber-ontology#produces"/>
+        <rdfs:label xml:lang="fr">est produite par</rdfs:label>
+        <rdfs:label xml:lang="en">is produced by</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-07 : création de la relation (#is-produced-by)</owl:versionInfo>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://TBD/cyber-ontology#processes -->
+
+    <owl:ObjectProperty rdf:about="https://TBD/cyber-ontology#processes">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://TBD/cyber-ontology#data-processing"/>
+                    <rdf:Description rdf:about="https://TBD/cyber-ontology#information-system"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://TBD/cyber-ontology#data"/>
+        <rdfs:label xml:lang="en">processes</rdfs:label>
+        <rdfs:label xml:lang="fr">traite</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-07 : création de la relation (#processes)</owl:versionInfo>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://TBD/cyber-ontology#produces -->
+
+    <owl:ObjectProperty rdf:about="https://TBD/cyber-ontology#produces">
+        <rdfs:subPropertyOf rdf:resource="https://TBD/cyber-ontology#processes"/>
+        <rdfs:label xml:lang="en">produces</rdfs:label>
+        <rdfs:label xml:lang="fr">produit</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-07 : création de la relation (#produces)</owl:versionInfo>
     </owl:ObjectProperty>
     
 
@@ -92,11 +223,12 @@
     <!-- https://TBD/cyber-ontology#relies-on -->
 
     <owl:ObjectProperty rdf:about="https://TBD/cyber-ontology#relies-on">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="https://TBD/cyber-ontology#data-processing"/>
         <rdfs:range rdf:resource="https://TBD/cyber-ontology#information-system"/>
         <rdfs:label xml:lang="en">relies on</rdfs:label>
         <rdfs:label xml:lang="fr">repose sur</rdfs:label>
-        <owl:versionInfo xml:lang="fr">2024-12-03 : création de la relation</owl:versionInfo>
+        <owl:versionInfo xml:lang="fr">2024-12-03 : création de la relation (#relies-on)</owl:versionInfo>
     </owl:ObjectProperty>
     
 
@@ -115,11 +247,12 @@
     <!-- https://TBD/cyber-ontology#approval-status -->
 
     <owl:DatatypeProperty rdf:about="https://TBD/cyber-ontology#approval-status">
+        <rdfs:subPropertyOf rdf:resource="https://TBD/cyber-ontology#description-property"/>
         <rdfs:domain rdf:resource="https://TBD/cyber-ontology#information-system"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#normalizedString"/>
         <rdfs:label xml:lang="en">approval status</rdfs:label>
         <rdfs:label xml:lang="fr">état d&apos;homologation</rdfs:label>
-        <owl:versionInfo xml:lang="fr">2024-12-03 : création de la propriété</owl:versionInfo>
+        <owl:versionInfo xml:lang="fr">2024-12-03 : création de la propriété (#approval-status)</owl:versionInfo>
     </owl:DatatypeProperty>
     
 
@@ -127,12 +260,35 @@
     <!-- https://TBD/cyber-ontology#data-processing-id -->
 
     <owl:DatatypeProperty rdf:about="https://TBD/cyber-ontology#data-processing-id">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdfs:domain rdf:resource="https://TBD/cyber-ontology#data-processing"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#normalizedString"/>
-        <rdfs:label xml:lang="en">data processing identifier</rdfs:label>
-        <rdfs:label xml:lang="fr">identifiant de traitement de données</rdfs:label>
-        <owl:versionInfo xml:lang="fr">2024-12-03 : création de la propriété</owl:versionInfo>
+        <rdfs:label>obsolete data processing identifier</rdfs:label>
+        <rdfs:label>obsolete identifiant de traitement de données</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <owl:versionInfo xml:lang="fr">2024-12-03 : création de la propriété (#data-processing-id)</owl:versionInfo>
+        <owl:versionInfo xml:lang="fr">2024-12-07 : suppression de la propriété (pas utile)</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://TBD/cyber-ontology#description-property -->
+
+    <owl:DatatypeProperty rdf:about="https://TBD/cyber-ontology#description-property">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:label xml:lang="en">description property</rdfs:label>
+        <rdfs:label xml:lang="fr">propriété de description</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-07 : création de la propriété (#description-property)</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://TBD/cyber-ontology#identification-property -->
+
+    <owl:DatatypeProperty rdf:about="https://TBD/cyber-ontology#identification-property">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:label xml:lang="en">identification property</rdfs:label>
+        <rdfs:label xml:lang="fr">propriété d&apos;identification</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-07 : création de la propriété (#identification-property)</owl:versionInfo>
     </owl:DatatypeProperty>
     
 
@@ -140,11 +296,78 @@
     <!-- https://TBD/cyber-ontology#information-system-id -->
 
     <owl:DatatypeProperty rdf:about="https://TBD/cyber-ontology#information-system-id">
+        <rdfs:subPropertyOf rdf:resource="https://TBD/cyber-ontology#identification-property"/>
         <rdfs:domain rdf:resource="https://TBD/cyber-ontology#information-system"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#normalizedString"/>
         <rdfs:label xml:lang="fr">identifiant de système d&apos;information</rdfs:label>
         <rdfs:label xml:lang="en">information system identifier</rdfs:label>
-        <owl:versionInfo xml:lang="fr">2024-12-03 : création de la propriété</owl:versionInfo>
+        <owl:versionInfo xml:lang="fr">2024-12-03 : création de la propriété (#information-system-id)</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://TBD/cyber-ontology#information-system-regulatory-type -->
+
+    <owl:DatatypeProperty rdf:about="https://TBD/cyber-ontology#information-system-regulatory-type">
+        <rdfs:subPropertyOf rdf:resource="https://TBD/cyber-ontology#description-property"/>
+        <rdfs:domain rdf:resource="https://TBD/cyber-ontology#information-system"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#normalizedString"/>
+        <rdfs:comment xml:lang="fr">Ex : système d&apos;information d&apos;importance vitale (SIIV), système d&apos;information essentiel (SIE).</rdfs:comment>
+        <rdfs:label xml:lang="en">information system regulatory type</rdfs:label>
+        <rdfs:label xml:lang="fr">type réglementaire de système d&apos;information</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-07 : création de la propriété (#information-system-tag)</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://TBD/cyber-ontology#information-system-status -->
+
+    <owl:DatatypeProperty rdf:about="https://TBD/cyber-ontology#information-system-status">
+        <rdfs:subPropertyOf rdf:resource="https://TBD/cyber-ontology#description-property"/>
+        <rdfs:domain rdf:resource="https://TBD/cyber-ontology#information-system"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#normalizedString"/>
+        <rdfs:label xml:lang="en">information system status</rdfs:label>
+        <rdfs:label xml:lang="fr">état du système d&apos;information</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-07 : création de la propriété (#information-system-status)</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://TBD/cyber-ontology#information-system-type -->
+
+    <owl:DatatypeProperty rdf:about="https://TBD/cyber-ontology#information-system-type">
+        <rdfs:subPropertyOf rdf:resource="https://TBD/cyber-ontology#description-property"/>
+        <rdfs:domain rdf:resource="https://TBD/cyber-ontology#information-system"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#normalizedString"/>
+        <rdfs:label xml:lang="en">information system type</rdfs:label>
+        <rdfs:label xml:lang="fr">type de système d&apos;information</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-07 : création de la propriété (#information-system-type)</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://TBD/cyber-ontology#long-label -->
+
+    <owl:DatatypeProperty rdf:about="https://TBD/cyber-ontology#long-label">
+        <rdfs:subPropertyOf rdf:resource="https://TBD/cyber-ontology#identification-property"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#normalizedString"/>
+        <rdfs:label xml:lang="fr">libellé long</rdfs:label>
+        <rdfs:label xml:lang="en">long label</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-07 : création de la propriété (#long-label)</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://TBD/cyber-ontology#short-label -->
+
+    <owl:DatatypeProperty rdf:about="https://TBD/cyber-ontology#short-label">
+        <rdfs:subPropertyOf rdf:resource="https://TBD/cyber-ontology#identification-property"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#normalizedString"/>
+        <rdfs:label xml:lang="fr">libellé court</rdfs:label>
+        <rdfs:label xml:lang="en">short label</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-07 : création de la propriété (#short-label)</owl:versionInfo>
     </owl:DatatypeProperty>
     
 
@@ -160,14 +383,55 @@
     
 
 
-    <!-- https://TBD/cyber-ontology#cyber-data -->
+    <!-- https://TBD/cyber-ontology#business-asset -->
 
-    <owl:Class rdf:about="https://TBD/cyber-ontology#cyber-data">
-        <rdfs:isDefinedBy xml:lang="en">Data related to the cyber domain.</rdfs:isDefinedBy>
-        <rdfs:isDefinedBy xml:lang="fr">Donnée relative au domaine cyber.</rdfs:isDefinedBy>
-        <rdfs:label xml:lang="en">Cyber data</rdfs:label>
-        <rdfs:label xml:lang="fr">Donnée cyber</rdfs:label>
-        <owl:versionInfo xml:lang="fr">2024-12-03 : crééation de la classe</owl:versionInfo>
+    <owl:Class rdf:about="https://TBD/cyber-ontology#business-asset">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://TBD/cyber-ontology#data"/>
+                    <rdf:Description rdf:about="https://TBD/cyber-ontology#data-processing"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://TBD/cyber-ontology#cyber-scope-data"/>
+        <rdfs:isDefinedBy xml:lang="fr">(source : [EBIOS Risk Manager])
+Dans le cadre de l’étude, composante importante pour l’organisation dans l’accomplissement de sa mission. Cela peut être un service, une fonction support, une étape dans un projet et toute information ou savoir-faire associé.
+Ex : service d’annulation de réservations en ligne ou de sauvegarde, informations clients, service de supervision, résultats de travaux de R&amp;D, données à caractère personnel, phase de déploiement d’un projet, savoir-faire en conception de pièces aéronautiques.
+Synonyme(s) : bien essentiel, actif primordial, élément à protéger.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="en">(source: [EBIOS Risk Manager])
+In the framework of the study, an important component for the organisation accomplishing its mission. This can be a service, a support function, a step in a project and any related information or know-how.
+E.g.: on-line back-up or reservation cancellation service, client information, supervision service, results of R&amp;D work, personal data, deployment phase of a project, know-how in designing aeronautical parts.</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Business asset</rdfs:label>
+        <rdfs:label xml:lang="fr">Valeur métier</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-07 : création de la classe (#business-asset)</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://TBD/cyber-ontology#cyber-scope-data -->
+
+    <owl:Class rdf:about="https://TBD/cyber-ontology#cyber-scope-data">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:isDefinedBy xml:lang="en">Data related to the cyber scope.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="fr">Donnée relative au périmètre cyber.</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Cyber scope data</rdfs:label>
+        <rdfs:label xml:lang="fr">Donnée du périmètre cyber</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-03 : création de la classe (#cyber-data)</owl:versionInfo>
+        <owl:versionInfo xml:lang="fr">2024-12-06 : changement de l&apos;IRI (#cyber-data en #cyber-scope-data) et des labels</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://TBD/cyber-ontology#data -->
+
+    <owl:Class rdf:about="https://TBD/cyber-ontology#data">
+        <rdfs:subClassOf rdf:resource="https://TBD/cyber-ontology#cyber-scope-data"/>
+        <rdfs:isDefinedBy xml:lang="en">Representation of a piece of information.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="fr">Représentation d’une information.</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Data</rdfs:label>
+        <rdfs:label xml:lang="fr">Donnée</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-06 : création de la classe (#data)</owl:versionInfo>
     </owl:Class>
     
 
@@ -175,7 +439,7 @@
     <!-- https://TBD/cyber-ontology#data-processing -->
 
     <owl:Class rdf:about="https://TBD/cyber-ontology#data-processing">
-        <rdfs:subClassOf rdf:resource="https://TBD/cyber-ontology#cyber-data"/>
+        <rdfs:subClassOf rdf:resource="https://TBD/cyber-ontology#cyber-scope-data"/>
         <rdfs:isDefinedBy xml:lang="fr">(d’après [RGPD])
 Toute opération ou tout ensemble d&apos;opérations effectuées ou non à l&apos;aide de procédés automatisés et appliquées à des données ou des ensembles de données, telles que la collecte, l&apos;enregistrement, l&apos;organisation, la structuration, la conservation, l&apos;adaptation ou la modification, l&apos;extraction, la consultation, l&apos;utilisation, la communication par transmission, la diffusion ou toute autre forme de mise à disposition, le rapprochement ou l&apos;interconnexion, la limitation, l&apos;effacement ou la destruction.
 Synonyme(s) : traitement de données à caractère personnel, traitement.</rdfs:isDefinedBy>
@@ -184,7 +448,7 @@ Any operation or set of operations which is performed on personal data, whether 
 Synonym(s): personal data processing, processing.</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">Data processing</rdfs:label>
         <rdfs:label xml:lang="fr">Traitement de données</rdfs:label>
-        <owl:versionInfo xml:lang="fr">2024-12-03 : création de la classe</owl:versionInfo>
+        <owl:versionInfo xml:lang="fr">2024-12-03 : création de la classe (#data-processing)</owl:versionInfo>
     </owl:Class>
     
 
@@ -192,7 +456,7 @@ Synonym(s): personal data processing, processing.</rdfs:isDefinedBy>
     <!-- https://TBD/cyber-ontology#information-system -->
 
     <owl:Class rdf:about="https://TBD/cyber-ontology#information-system">
-        <rdfs:subClassOf rdf:resource="https://TBD/cyber-ontology#cyber-data"/>
+        <rdfs:subClassOf rdf:resource="https://TBD/cyber-ontology#cyber-scope-data"/>
         <rdfs:isDefinedBy xml:lang="fr">(SI, source : [ISO/IEC 27000])
 Ensemble d’applications, services, actifs informationnels ou autres composants permettant de gérer l’information.
 Synonyme(s) : système d&apos;information et de communication (SIC), service numérique.</rdfs:isDefinedBy>
@@ -201,73 +465,62 @@ Set of applications, services, information technology assets, or other informati
 Synonym(s): information and communication system (ICS), digital service.</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">Information system</rdfs:label>
         <rdfs:label xml:lang="fr">Système d&apos;information</rdfs:label>
-        <owl:versionInfo xml:lang="fr">2024-12-03 : création de la classe</owl:versionInfo>
+        <owl:versionInfo xml:lang="fr">2024-12-03 : création de la classe (#information-system)</owl:versionInfo>
     </owl:Class>
     
 
 
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Individuals
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
+    <!-- https://TBD/cyber-ontology#interconnection -->
 
+    <owl:Class rdf:about="https://TBD/cyber-ontology#interconnection">
+        <rdfs:subClassOf rdf:resource="https://TBD/cyber-ontology#cyber-scope-data"/>
+        <rdfs:isDefinedBy xml:lang="en">System allowing a connection between a system and other systems.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="fr">Système qui permet de connecter un système à d&apos;autres systèmes.</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Interconnection</rdfs:label>
+        <rdfs:label xml:lang="fr">Interconnexion</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-07 : création de la classe (#interconnection)</owl:versionInfo>
+    </owl:Class>
     
 
 
-    <!-- https://TBD/cyber-ontology#Processing1 -->
+    <!-- https://TBD/cyber-ontology#purpose -->
 
-    <owl:NamedIndividual rdf:about="https://TBD/cyber-ontology#Processing1">
-        <rdf:type rdf:resource="https://TBD/cyber-ontology#data-processing"/>
-        <cyber-ontology:relies-on rdf:resource="https://TBD/cyber-ontology#SI1"/>
-    </owl:NamedIndividual>
+    <owl:Class rdf:about="https://TBD/cyber-ontology#purpose">
+        <rdfs:subClassOf rdf:resource="https://TBD/cyber-ontology#cyber-scope-data"/>
+        <rdfs:isDefinedBy xml:lang="en">Aim for which data is collected and processed.
+Synonym(s): mission.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="fr">Raison pour laquelle des données sont collectées et traitées.
+Synonyme(s) : mission.</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="fr">Finalité</rdfs:label>
+        <rdfs:label xml:lang="en">Purpose</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-06 : création de la classe (#purpose)</owl:versionInfo>
+    </owl:Class>
     
 
 
-    <!-- https://TBD/cyber-ontology#Processing2 -->
+    <!-- https://TBD/cyber-ontology#supporting-asset -->
 
-    <owl:NamedIndividual rdf:about="https://TBD/cyber-ontology#Processing2">
-        <rdf:type rdf:resource="https://TBD/cyber-ontology#data-processing"/>
-        <cyber-ontology:relies-on rdf:resource="https://TBD/cyber-ontology#SI2"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://TBD/cyber-ontology#SI1 -->
-
-    <owl:NamedIndividual rdf:about="https://TBD/cyber-ontology#SI1">
-        <rdf:type rdf:resource="https://TBD/cyber-ontology#information-system"/>
-        <cyber-ontology:carries rdf:resource="https://TBD/cyber-ontology#Processing2"/>
-        <cyber-ontology:composes rdf:resource="https://TBD/cyber-ontology#SI3"/>
-        <cyber-ontology:is-connected-to rdf:resource="https://TBD/cyber-ontology#SI1"/>
-        <cyber-ontology:is-interconnected-to rdf:resource="https://TBD/cyber-ontology#SI2"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://TBD/cyber-ontology#SI2 -->
-
-    <owl:NamedIndividual rdf:about="https://TBD/cyber-ontology#SI2">
-        <rdf:type rdf:resource="https://TBD/cyber-ontology#information-system"/>
-        <cyber-ontology:carries rdf:resource="https://TBD/cyber-ontology#Processing1"/>
-        <cyber-ontology:composes rdf:resource="https://TBD/cyber-ontology#SI3"/>
-        <cyber-ontology:is-connected-to rdf:resource="https://TBD/cyber-ontology#SI2"/>
-        <cyber-ontology:is-interconnected-to rdf:resource="https://TBD/cyber-ontology#SI1"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://TBD/cyber-ontology#SI3 -->
-
-    <owl:NamedIndividual rdf:about="https://TBD/cyber-ontology#SI3">
-        <rdf:type rdf:resource="https://TBD/cyber-ontology#information-system"/>
-        <cyber-ontology:carries rdf:resource="https://TBD/cyber-ontology#Processing1"/>
-        <cyber-ontology:carries rdf:resource="https://TBD/cyber-ontology#Processing2"/>
-        <cyber-ontology:is-composed-by rdf:resource="https://TBD/cyber-ontology#SI1"/>
-        <cyber-ontology:is-composed-by rdf:resource="https://TBD/cyber-ontology#SI2"/>
-    </owl:NamedIndividual>
+    <owl:Class rdf:about="https://TBD/cyber-ontology#supporting-asset">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://TBD/cyber-ontology#information-system"/>
+                    <rdf:Description rdf:about="https://TBD/cyber-ontology#interconnection"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://TBD/cyber-ontology#cyber-scope-data"/>
+        <rdfs:isDefinedBy xml:lang="fr">(source : [EBIOS Risk Manager])
+Composante du système d’information sur laquelle repose une ou plusieurs valeurs métier. Un bien support peut être de nature numérique, physique ou organisationnelle.
+Ex. : serveur, réseau de téléphonie, passerelle d’interconnexion, local technique, dispositif de vidéo protection, équipe en charge du projet, administrateurs, département de R&amp;D.
+Synonyme(s) : actif en support, support de données.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="en">(source: [EBIOS Risk Manager])
+Component of the information system on which one or several business assets are based. A supporting asset can be of a digital, physical or organisational nature.
+E.g.: server, telephone network, interconnection gateway, technical room, video protection system, team in charge of the project, administrators, R&amp;D department.</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="fr">Support de données</rdfs:label>
+        <rdfs:label xml:lang="en">Supporting asset</rdfs:label>
+        <owl:versionInfo xml:lang="fr">2024-12-07 : création de la classe (#supporting-asset)</owl:versionInfo>
+    </owl:Class>
 </rdf:RDF>
 
 
