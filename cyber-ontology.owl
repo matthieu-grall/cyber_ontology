@@ -8,6 +8,8 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:cyber-ontology="https://TBD/cyber-ontology#">
     <owl:Ontology rdf:about="https://TBD/cyber-ontology">
+        <rdfs:comment xml:lang="fr">La présente ontologie est vouée à conceptualiser les données du périmètre cyber. Elle a été crée par Matthieu GRALL pour le compte du collectif DATA VISIONS sous licence CC BY 4.0 (partage et modification sous condition d&apos;attribution : https://creativecommons.org/licenses/by/4.0/deed.fr).</rdfs:comment>
+        <rdfs:comment xml:lang="en">This ontology aims at conceptualize data of the cyber scope. It has been created by Matthieu GRALL for the DATA VISIONS collective, and covered by CC BY 4.0 license (share and adapt with attribution: https://creativecommons.org/licenses/by/4.0/deed.en).</rdfs:comment>
         <owl:versionInfo xml:lang="fr">Version 0.1 du 03/12/2024 :
 - classes : création de #cyber-data, #information-system et #data-processing ;
 - relations : création de premières relations afférentes ;
@@ -15,7 +17,7 @@
         <owl:versionInfo xml:lang="fr">Version 0.2 du 07/12/2024 :
 - classes : ajout de #data, #purpose, #interconnection, #business-asset, #supporting-asset ;
 - relations : ajout de #processes, #is-processed-by, #has-instance, #is-instance-of, #consumes, #is-consumed-by, #produces, #is-produced-by ;
-- propriétés : ajout de #short-label, #long-label, #information-system-status, #information-system-type, #information-system-regulatory-type, #identification-property, #descrption-property, dépréciation de #data-processing-id (pas utile) ;
+- propriétés : ajout de #short-label, #long-label, #information-system-status, #information-system-type, #information-system-regulatory-type, #identification-property, #description-property, dépréciation de #data-processing-id (pas utile) ;
 - améliorations mineures (renommages, déplacements, corrections).</owl:versionInfo>
     </owl:Ontology>
     
@@ -442,10 +444,10 @@ E.g.: on-line back-up or reservation cancellation service, client information, s
         <rdfs:subClassOf rdf:resource="https://TBD/cyber-ontology#cyber-scope-data"/>
         <rdfs:isDefinedBy xml:lang="fr">(d’après [RGPD])
 Toute opération ou tout ensemble d&apos;opérations effectuées ou non à l&apos;aide de procédés automatisés et appliquées à des données ou des ensembles de données, telles que la collecte, l&apos;enregistrement, l&apos;organisation, la structuration, la conservation, l&apos;adaptation ou la modification, l&apos;extraction, la consultation, l&apos;utilisation, la communication par transmission, la diffusion ou toute autre forme de mise à disposition, le rapprochement ou l&apos;interconnexion, la limitation, l&apos;effacement ou la destruction.
-Synonyme(s) : traitement de données à caractère personnel, traitement.</rdfs:isDefinedBy>
+Synonyme(s) : traitement de données à caractère personnel, traitement, processus.</rdfs:isDefinedBy>
         <rdfs:isDefinedBy xml:lang="en">(from [GDPR])
 Any operation or set of operations which is performed on personal data, whether or not by automated means, such as collection, recording, organisation, structuring, storage, adaptation or altration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction.
-Synonym(s): personal data processing, processing.</rdfs:isDefinedBy>
+Synonym(s): personal data processing, processing, process.</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">Data processing</rdfs:label>
         <rdfs:label xml:lang="fr">Traitement de données</rdfs:label>
         <owl:versionInfo xml:lang="fr">2024-12-03 : création de la classe (#data-processing)</owl:versionInfo>
