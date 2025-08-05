@@ -41,3 +41,14 @@ The ambition is to create an ontology that is:
 	- version information in French (_owl:versionInfo_);
 	- domains;
 	- ranges.
+	
+	## Backlog
+The **backlog** is currently the following (using MoSCoW priorization: (M) Must have | (S) Should have | (C) Could Have | (W) Won't have):
+| <center>**Objects**</center> | <center>**Added value**</center> | <center>**Limits**</center> | <center>**Actions**</center> |
+| --- | --- | --- | --- |
+| General | {to be formalized} | {to be formalized} | {to be formalized} |
+| Classes | {to be formalized} | {to be formalized} | {to be formalized} |
+| Relations | {to be formalized} | {to be formalized} | {to be formalized} |
+| Properties | {to be formalized} | {to be formalized} | {to be formalized} |
+| README | {to be formalized} | {to be formalized} | (S) Define handling rules |
+
