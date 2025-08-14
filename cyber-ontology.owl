@@ -10074,11 +10074,18 @@ Synonym(s): web address.</rdfs:isDefinedBy>
     <!-- https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase -->
 
     <owl:Class rdf:about="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase">
-        <rdfs:isDefinedBy xml:lang="en">Cyber scope data processing.</rdfs:isDefinedBy>
-        <rdfs:isDefinedBy xml:lang="fr">Traitement de données du périmètre cyber.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="fr">CAS D'USAGE
+Cette classe est destinée à :
+- identifier les cas d&apos;usages / traitements de données du périmètre cyber, qui sont intégrés à l&apos;ontologie (par domaines) ;
+- indiquer, à l&apos;aide de leurs relations, les classes qu&apos;ils traitent (données en entrée / consommées, données internes / gérées, données en sortie / produites).</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="en">USECASE
+This class aims at:
+- identifying cyber permieter usecases / data processings, that are integrated in the ontology ;
+- indicating, thru their relations, classes that they process (input, managed and outpu data).</rdfs:isDefinedBy>
         <rdfs:label xml:lang="fr">Cas d&apos;usage</rdfs:label>
         <rdfs:label xml:lang="en">Usecase</rdfs:label>
         <owl:versionInfo xml:lang="en">2025-08-05: add #usecase</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">2025-08-09: update definition</owl:versionInfo>
     </owl:Class>
     
 
@@ -10102,14 +10109,16 @@ Synonym(s): web address.</rdfs:isDefinedBy>
 
     <owl:Class rdf:about="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-attack">
         <rdfs:subClassOf rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase"/>
-        <rdfs:isDefinedBy xml:lang="fr">Aspect d’une menace dans le cadre de la cyberprotection ou de la lutte informatique défensive (LID), ou d’une action dans le cadre de la lutte informatique d&apos;influence (L2I) ou de la lutte informatique offensive (LIO).</rdfs:isDefinedBy>
-        <rdfs:isDefinedBy xml:lang="en">Aspect of a threat in the context of cyberprotection or cyberdefence, or of an action in the context of information warfare or cyber warfare.</rdfs:isDefinedBy>
-        <rdfs:label xml:lang="en">2025-08-05: move to #usecase</rdfs:label>
+        <rdfs:isDefinedBy xml:lang="fr">CAS D'USAGE
+Domaine du périmètre cyber, qui intègre les cas d&apos;usages la lutte informatique d&apos;influence (L2I) et la lutte informatique offensive (LIO).</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="en">USECASE
+Cyber permeter domain, that includes information warfare and cyber warfare.</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">Engage</rdfs:label>
         <rdfs:label xml:lang="fr">Engager</rdfs:label>
         <owl:versionInfo xml:lang="en">2025-04-11: add #offensive-operation-data</owl:versionInfo>
         <owl:versionInfo xml:lang="en">2025-07-10: move and rename to #attack-process</owl:versionInfo>
-        <owl:versionInfo xml:lang="en">2025-08-05: rename to #usecase-attack</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">2025-08-05: move to #usecase and rename to #usecase-attack</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">2025-08-09: update definition</owl:versionInfo>
     </owl:Class>
     
 
@@ -10118,14 +10127,35 @@ Synonym(s): web address.</rdfs:isDefinedBy>
 
     <owl:Class rdf:about="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-defence">
         <rdfs:subClassOf rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase"/>
-        <rdfs:isDefinedBy xml:lang="fr">Aspect du traitement des risques ou des incidents dans le cadre de la cyberprotection ou de la lutte informatique défensive (LID).</rdfs:isDefinedBy>
-        <rdfs:isDefinedBy xml:lang="en">Aspect of risk or incident treatment in the context of cyberprotection or cyberdefence.</rdfs:isDefinedBy>
-        <rdfs:label xml:lang="en">2025-08-05: move to #usecase</rdfs:label>
+        <rdfs:isDefinedBy xml:lang="fr">CAS D'USAGE
+Domaine du périmètre cyber, qui intègre les cas d&apos;usages de cyberprotection et de lutte informatique défensive (LID).</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="en">USECASE
+Cyber permeter domain, that includes cyberprotection and cyberdefence usecases.</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">Defend</rdfs:label>
         <rdfs:label xml:lang="fr">Défendre</rdfs:label>
         <owl:versionInfo xml:lang="en">2025-04-11: add #defensive-operation-data</owl:versionInfo>
         <owl:versionInfo xml:lang="en">2025-07-10: move and rename to #defence-process</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">2025-08-05: move to #usecase</owl:versionInfo>
         <owl:versionInfo xml:lang="en">2025-08-05: rename to #usecase-defend</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">2025-08-09: update definition</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-influence-monitoring -->
+
+    <owl:Class rdf:about="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-influence-monitoring">
+        <rdfs:subClassOf rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-defence"/>
+        <rdfs:isDefinedBy xml:lang="fr">CAS D'USAGE
+Cas d&apos;usage relatif aux activités de veille informationnelle (notamment pour détecter les attaques informationnelles).</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="en">USECASE
+Usecase related to Influence monitoring activities (especialy to detect influence attacks).</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="fr">Faire de la veille informationnelle</rdfs:label>
+        <rdfs:label xml:lang="en">Influence monitoring</rdfs:label>
+        <owl:versionInfo xml:lang="en">2025-04-11: add #information-monitoring-data</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">2025-07-10: move and rename to #monitoring-process</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">2025-08-05: move to #usecase and rename to #usecase-monitor</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">2025-08-09: rename to #usecase-influence-monitoring and move to #usecase-defend</owl:versionInfo>
     </owl:Class>
     
 
@@ -10134,15 +10164,18 @@ Synonym(s): web address.</rdfs:isDefinedBy>
 
     <owl:Class rdf:about="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-manage-risks">
         <rdfs:subClassOf rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-pilot"/>
-        <rdfs:isDefinedBy xml:lang="fr">[ISO/IEC 27000]
-Activités coordonnées visant à diriger et contrôler un organisme vis-à-vis du risque.</rdfs:isDefinedBy>
-        <rdfs:isDefinedBy xml:lang="en">[ISO/IEC 27000]
-Coordinated activities to direct and control an organization with regard to risk.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="fr">CAS D'USAGE
+(d&apos;après [ISO/IEC 27000])
+Cas d&apos;usage relatif aux activités coordonnées visant à diriger et contrôler un organisme vis-à-vis du risque.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="en">USECASE
+(from [ISO/IEC 27000])
+Usecase related to coordinated activities to direct and control an organization with regard to risk.</rdfs:isDefinedBy>
         <rdfs:label xml:lang="fr">Gérer les risques</rdfs:label>
         <rdfs:label xml:lang="en">Manage risks</rdfs:label>
         <owl:versionInfo xml:lang="en">2025-04-11: add #risk-management-data</owl:versionInfo>
         <owl:versionInfo xml:lang="en">2025-07-10: move, rename to #risk-management-process and redefine</owl:versionInfo>
         <owl:versionInfo xml:lang="en">2025-08-05: rename to #usecase-manage-risks</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">2025-08-09: update definition</owl:versionInfo>
     </owl:Class>
     
 
@@ -10151,31 +10184,18 @@ Coordinated activities to direct and control an organization with regard to risk
 
     <owl:Class rdf:about="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-manage-services">
         <rdfs:subClassOf rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-support"/>
-        <rdfs:isDefinedBy xml:lang="fr">[ISO/IEC 20000]
-Ensemble d&apos;aptitudes et de processus permettant de diriger et de maîtriser les activités et les ressources de l’organisme pour la planification, la conception, la transition, la fourniture et l&apos;amélioration des services, afin d’apporter de la valeur.
+        <rdfs:isDefinedBy xml:lang="fr">CAS D'USAGE
+(d&apos;après [ISO/IEC 20000])
+Cas d&apos;usage relatif à l&apos;ensemble d&apos;aptitudes et de processus permettant de diriger et de maîtriser les activités et les ressources de l’organisme pour la planification, la conception, la transition, la fourniture et l&apos;amélioration des services, afin d’apporter de la valeur.
 Synonyme(s) : gérer les systèmes d&apos;information (SI), gérer l&apos;informatique.</rdfs:isDefinedBy>
-        <rdfs:isDefinedBy xml:lang="en">[ISO/IEC 20000]
-Set of capabilities and processes to direct and control the organization’s activities and resources for the planning, design, transition, delivery and improvement of services to deliver value.
+        <rdfs:isDefinedBy xml:lang="en">USECASE
+(from [ISO/IEC 20000])
+Usecase related to the set of capabilities and processes to direct and control the organization’s activities and resources for the planning, design, transition, delivery and improvement of services to deliver value.
 Synonym(s) : manage IT.</rdfs:isDefinedBy>
         <rdfs:label xml:lang="fr">Gérer les services</rdfs:label>
         <rdfs:label xml:lang="en">Manage services</rdfs:label>
         <owl:versionInfo xml:lang="en">2025-08-05: add #manage-services</owl:versionInfo>
-    </owl:Class>
-    
-
-
-    <!-- https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-monitor -->
-
-    <owl:Class rdf:about="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-monitor">
-        <rdfs:subClassOf rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase"/>
-        <rdfs:isDefinedBy xml:lang="fr">Aspect d&apos;une activité liée à la détection d&apos;attaque informationnelle.</rdfs:isDefinedBy>
-        <rdfs:isDefinedBy xml:lang="en">Aspect of influence attack detection.</rdfs:isDefinedBy>
-        <rdfs:label xml:lang="en">2025-08-05: move to #usecase</rdfs:label>
-        <rdfs:label xml:lang="en">Monitor</rdfs:label>
-        <rdfs:label xml:lang="fr">Veiller</rdfs:label>
-        <owl:versionInfo xml:lang="en">2025-04-11: add #information-monitoring-data</owl:versionInfo>
-        <owl:versionInfo xml:lang="en">2025-07-10: move and rename to #monitoring-process</owl:versionInfo>
-        <owl:versionInfo xml:lang="en">2025-08-05: rename to #usecase-monitor</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">2025-08-09: update definition</owl:versionInfo>
     </owl:Class>
     
 
@@ -10184,11 +10204,15 @@ Synonym(s) : manage IT.</rdfs:isDefinedBy>
 
     <owl:Class rdf:about="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-pilot">
         <rdfs:subClassOf rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase"/>
-        <rdfs:label xml:lang="en">2025-08-05: move to #usecase</rdfs:label>
+        <rdfs:isDefinedBy xml:lang="fr">CAS D'USAGE
+Domaine transverse du périmètre cyber, qui intègre les cas d&apos;usages de tableaux de bord, de gouvernance et de planification.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="en">USECASE
+Transversal cyber perimeter domain, that includes monitoring, governance and planing usecases.</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">Pilot</rdfs:label>
         <rdfs:label xml:lang="fr">Piloter</rdfs:label>
         <owl:versionInfo xml:lang="en">2025-07-10: add #governance-process</owl:versionInfo>
-        <owl:versionInfo xml:lang="en">2025-08-05: rename to #usecase-pilot</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">2025-08-05: move to #usecase and rename to #usecase-pilot</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">2025-08-09: update definition</owl:versionInfo>
     </owl:Class>
     
 
@@ -10197,13 +10221,16 @@ Synonym(s) : manage IT.</rdfs:isDefinedBy>
 
     <owl:Class rdf:about="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-plan">
         <rdfs:subClassOf rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-pilot"/>
-        <rdfs:isDefinedBy xml:lang="fr">Aspect de la prévision d’actions.</rdfs:isDefinedBy>
-        <rdfs:isDefinedBy xml:lang="en">Aspect of actions forecasting.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="fr">CAS D'USAGE
+Cas d&apos;usage relatif aux activités de définition et de planification d’actions.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="en">USECASE
+Usecase related to definition and planification activites.</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">Plan</rdfs:label>
         <rdfs:label xml:lang="fr">Planifier</rdfs:label>
         <owl:versionInfo xml:lang="en">2025-04-11: add #planification-data</owl:versionInfo>
         <owl:versionInfo xml:lang="en">2025-07-10: move and rename to #planification-process</owl:versionInfo>
         <owl:versionInfo xml:lang="en">2025-08-05: rename to #usecase-plan</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">2025-08-09: update definition</owl:versionInfo>
     </owl:Class>
     
 
@@ -10212,11 +10239,14 @@ Synonym(s) : manage IT.</rdfs:isDefinedBy>
 
     <owl:Class rdf:about="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-support">
         <rdfs:subClassOf rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase"/>
-        <rdfs:isDefinedBy xml:lang="en">Aspects related to supporting activities.</rdfs:isDefinedBy>
-        <rdfs:isDefinedBy xml:lang="fr">Aspects relatif aux activités de support.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="fr">CAS D'USAGE
+Domaine transverse du périmètre cyber, qui intègre les activités de support.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="en">USECASE
+Transversal cyber scope domain, that includes support activities.</rdfs:isDefinedBy>
         <rdfs:label xml:lang="fr">Soutenir</rdfs:label>
         <rdfs:label xml:lang="en">Support</rdfs:label>
         <owl:versionInfo xml:lang="en">2025-08-05: add #usecase-support</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">2025-08-09: update definition</owl:versionInfo>
     </owl:Class>
     
 
