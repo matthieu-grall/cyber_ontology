@@ -275,11 +275,12 @@
         <rdfs:subPropertyOf rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#relation-of-a-data-processing"/>
         <owl:inverseOf rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#is-carried-out-by"/>
         <rdfs:domain rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#data-processing"/>
-        <rdfs:range rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#mission"/>
+        <rdfs:range rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#purpose"/>
         <rdfs:label xml:lang="fr">contribue à réaliser</rdfs:label>
         <rdfs:label xml:lang="en">contributes to</rdfs:label>
         <owl:versionInfo xml:lang="en">2025-04-17: add #contributes-to</owl:versionInfo>
         <owl:versionInfo xml:lang="en">2025-07-10: change domain</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">2025-11-11: change range to merge #mission with #purpose</owl:versionInfo>
     </owl:ObjectProperty>
     
 
@@ -2044,12 +2045,13 @@
 
     <owl:ObjectProperty rdf:about="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#is-carried-out-by">
         <rdfs:subPropertyOf rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#relation-of-a-data-processing"/>
-        <rdfs:domain rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#mission"/>
+        <rdfs:domain rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#purpose"/>
         <rdfs:range rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#data-processing"/>
         <rdfs:label xml:lang="fr">est réalisée par</rdfs:label>
         <rdfs:label xml:lang="en">is carried out by</rdfs:label>
         <owl:versionInfo xml:lang="en">2025-04-17: add #is-carried-out-by</owl:versionInfo>
         <owl:versionInfo xml:lang="en">2025-07-10: change range</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">2025-11-11: change domain to merge #mission with #purpose</owl:versionInfo>
     </owl:ObjectProperty>
     
 
@@ -4037,7 +4039,6 @@
         <rdfs:range rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#interested-party"/>
         <rdfs:range rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#internal-organization"/>
         <rdfs:range rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#interpersonal-channel"/>
-        <rdfs:range rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#mission"/>
         <rdfs:range rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#network"/>
         <rdfs:range rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#offensive-modus-operandi"/>
         <rdfs:range rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#operational-scenario"/>
@@ -4045,6 +4046,7 @@
         <rdfs:range rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#personnel"/>
         <rdfs:range rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#phase"/>
         <rdfs:range rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#premises"/>
+        <rdfs:range rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#purpose"/>
         <rdfs:range rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#reference-text"/>
         <rdfs:range rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#risk"/>
         <rdfs:range rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#risk-source"/>
@@ -4058,6 +4060,7 @@
         <rdfs:label xml:lang="en">is a risk management process that processes</rdfs:label>
         <owl:versionInfo xml:lang="en">2025-07-10: add #is-risk-management-process-that-processes</owl:versionInfo>
         <owl:versionInfo xml:lang="en">2025-08-05: move to #relation-for-usecases-handling</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">2025-11-11: change range to merge #mission with #purpose</owl:versionInfo>
     </owl:ObjectProperty>
     
 
@@ -8960,14 +8963,15 @@ A geographic location. A location may be described as any, some or all of the fo
     <!-- https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#mission -->
 
     <owl:Class rdf:about="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#mission">
-        <rdfs:subClassOf rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#purpose"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#deprecated-class"/>
         <rdfs:isDefinedBy xml:lang="fr">(source : [EBIOS Risk Manager])
 Fonction, finalité, raison d’être de l’objet de l’étude.</rdfs:isDefinedBy>
         <rdfs:isDefinedBy xml:lang="en">(source: [EBIOS Risk Manager])
 Function, end purpose, reason of existence of the studied object.</rdfs:isDefinedBy>
-        <rdfs:label xml:lang="en">Mission</rdfs:label>
-        <rdfs:label xml:lang="fr">Mission</rdfs:label>
+        <rdfs:label xml:lang="en">(deprecated) Mission</rdfs:label>
+        <rdfs:label xml:lang="fr">(déprécié) Mission</rdfs:label>
         <owl:versionInfo xml:lang="en">2025-04-11: add #mission</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">2025-11-11: merge with #purpose</owl:versionInfo>
     </owl:Class>
     
 
@@ -10074,7 +10078,7 @@ Synonym(s): web address.</rdfs:isDefinedBy>
     <!-- https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase -->
 
     <owl:Class rdf:about="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase">
-        <rdfs:isDefinedBy xml:lang="fr">CAS D'USAGE
+        <rdfs:isDefinedBy xml:lang="fr">CAS D&apos;USAGE
 Cette classe est destinée à :
 - identifier les cas d&apos;usages / traitements de données du périmètre cyber, qui sont intégrés à l&apos;ontologie (par domaines) ;
 - indiquer, à l&apos;aide de leurs relations, les classes qu&apos;ils traitent (données en entrée / consommées, données internes / gérées, données en sortie / produites).</rdfs:isDefinedBy>
@@ -10109,7 +10113,7 @@ This class aims at:
 
     <owl:Class rdf:about="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-attack">
         <rdfs:subClassOf rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase"/>
-        <rdfs:isDefinedBy xml:lang="fr">CAS D'USAGE
+        <rdfs:isDefinedBy xml:lang="fr">CAS D&apos;USAGE
 Domaine du périmètre cyber, qui intègre les cas d&apos;usages la lutte informatique d&apos;influence (L2I) et la lutte informatique offensive (LIO).</rdfs:isDefinedBy>
         <rdfs:isDefinedBy xml:lang="en">USECASE
 Cyber permeter domain, that includes information warfare and cyber warfare.</rdfs:isDefinedBy>
@@ -10127,7 +10131,7 @@ Cyber permeter domain, that includes information warfare and cyber warfare.</rdf
 
     <owl:Class rdf:about="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-defence">
         <rdfs:subClassOf rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase"/>
-        <rdfs:isDefinedBy xml:lang="fr">CAS D'USAGE
+        <rdfs:isDefinedBy xml:lang="fr">CAS D&apos;USAGE
 Domaine du périmètre cyber, qui intègre les cas d&apos;usages de cyberprotection et de lutte informatique défensive (LID).</rdfs:isDefinedBy>
         <rdfs:isDefinedBy xml:lang="en">USECASE
 Cyber permeter domain, that includes cyberprotection and cyberdefence usecases.</rdfs:isDefinedBy>
@@ -10146,7 +10150,7 @@ Cyber permeter domain, that includes cyberprotection and cyberdefence usecases.<
 
     <owl:Class rdf:about="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-influence-monitoring">
         <rdfs:subClassOf rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-defence"/>
-        <rdfs:isDefinedBy xml:lang="fr">CAS D'USAGE
+        <rdfs:isDefinedBy xml:lang="fr">CAS D&apos;USAGE
 Cas d&apos;usage relatif aux activités de veille informationnelle (notamment pour détecter les attaques informationnelles).</rdfs:isDefinedBy>
         <rdfs:isDefinedBy xml:lang="en">USECASE
 Usecase related to Influence monitoring activities (especialy to detect influence attacks).</rdfs:isDefinedBy>
@@ -10164,7 +10168,7 @@ Usecase related to Influence monitoring activities (especialy to detect influenc
 
     <owl:Class rdf:about="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-manage-risks">
         <rdfs:subClassOf rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-pilot"/>
-        <rdfs:isDefinedBy xml:lang="fr">CAS D'USAGE
+        <rdfs:isDefinedBy xml:lang="fr">CAS D&apos;USAGE
 (d&apos;après [ISO/IEC 27000])
 Cas d&apos;usage relatif aux activités coordonnées visant à diriger et contrôler un organisme vis-à-vis du risque.</rdfs:isDefinedBy>
         <rdfs:isDefinedBy xml:lang="en">USECASE
@@ -10184,7 +10188,7 @@ Usecase related to coordinated activities to direct and control an organization 
 
     <owl:Class rdf:about="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-manage-services">
         <rdfs:subClassOf rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-support"/>
-        <rdfs:isDefinedBy xml:lang="fr">CAS D'USAGE
+        <rdfs:isDefinedBy xml:lang="fr">CAS D&apos;USAGE
 (d&apos;après [ISO/IEC 20000])
 Cas d&apos;usage relatif à l&apos;ensemble d&apos;aptitudes et de processus permettant de diriger et de maîtriser les activités et les ressources de l’organisme pour la planification, la conception, la transition, la fourniture et l&apos;amélioration des services, afin d’apporter de la valeur.
 Synonyme(s) : gérer les systèmes d&apos;information (SI), gérer l&apos;informatique.</rdfs:isDefinedBy>
@@ -10204,7 +10208,7 @@ Synonym(s) : manage IT.</rdfs:isDefinedBy>
 
     <owl:Class rdf:about="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-pilot">
         <rdfs:subClassOf rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase"/>
-        <rdfs:isDefinedBy xml:lang="fr">CAS D'USAGE
+        <rdfs:isDefinedBy xml:lang="fr">CAS D&apos;USAGE
 Domaine transverse du périmètre cyber, qui intègre les cas d&apos;usages de tableaux de bord, de gouvernance et de planification.</rdfs:isDefinedBy>
         <rdfs:isDefinedBy xml:lang="en">USECASE
 Transversal cyber perimeter domain, that includes monitoring, governance and planing usecases.</rdfs:isDefinedBy>
@@ -10221,7 +10225,7 @@ Transversal cyber perimeter domain, that includes monitoring, governance and pla
 
     <owl:Class rdf:about="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-plan">
         <rdfs:subClassOf rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-pilot"/>
-        <rdfs:isDefinedBy xml:lang="fr">CAS D'USAGE
+        <rdfs:isDefinedBy xml:lang="fr">CAS D&apos;USAGE
 Cas d&apos;usage relatif aux activités de définition et de planification d’actions.</rdfs:isDefinedBy>
         <rdfs:isDefinedBy xml:lang="en">USECASE
 Usecase related to definition and planification activites.</rdfs:isDefinedBy>
@@ -10239,7 +10243,7 @@ Usecase related to definition and planification activites.</rdfs:isDefinedBy>
 
     <owl:Class rdf:about="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase-support">
         <rdfs:subClassOf rdf:resource="https://github.com/matthieu-grall/cyber_ontology/blob/main/cyber-ontology.owl#usecase"/>
-        <rdfs:isDefinedBy xml:lang="fr">CAS D'USAGE
+        <rdfs:isDefinedBy xml:lang="fr">CAS D&apos;USAGE
 Domaine transverse du périmètre cyber, qui intègre les activités de support.</rdfs:isDefinedBy>
         <rdfs:isDefinedBy xml:lang="en">USECASE
 Transversal cyber scope domain, that includes support activities.</rdfs:isDefinedBy>
